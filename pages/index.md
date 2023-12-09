@@ -3,7 +3,7 @@ title: Yu Guo
 plum: true
 ---
 
-Hey, I am Yu Guo.
+Hey, I am Yu Guo, a passionate computer geek.
 
 ***
 
