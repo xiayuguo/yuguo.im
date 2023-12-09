@@ -1,5 +1,5 @@
 ---
-title: Blog - Yu Guo
+title: Yu Guo
 display: ''
 plum: true
 ---
