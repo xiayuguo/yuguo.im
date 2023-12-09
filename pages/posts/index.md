@@ -1,9 +1,9 @@
 ---
-title: Blog - Anthony Fu
+title: Blog - Yu Guo
 display: ''
 plum: true
 ---
 
-<SubNav />
+<!-- <SubNav /> -->
 
 <ListPosts only-date type="blog" />

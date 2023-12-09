@@ -1,7 +1,7 @@
 <template>
   <div flex="~ wrap gap-2 items-center justify-center">
     <a
-      href="https://github.com/sponsors/antfu"
+      href="https://github.com/sponsors/xiayuguo"
       target="_blank"
       class="group btn-rose"
     >
@@ -13,7 +13,7 @@
       Sponsor to support my work
     </a>
     <a
-      href="https://afdian.net/a/antfu"
+      href="https://afdian.net/a/yuguo"
       target="_blank"
       class="group btn-yellow"
     >

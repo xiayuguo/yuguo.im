@@ -51,7 +51,7 @@ function slug(name: string) {
         <em>
           Thanks for getting interested in my works! If like them or find them useful, consider
           &nbsp;<a
-            href="https://github.com/sponsors/antfu"
+            href="https://github.com/sponsors/xiayuguo"
             target="_blank"
             rel="nofollow noopener noreferrer"
           >sponsoring me</a>&nbsp;to support me keeping them sustainable. Cheers! :)
@@ -59,9 +59,6 @@ function slug(name: string) {
       </p>
 
       <SponsorButton />
-      <div block mt-5>
-        <a href="https://antfu.me/stars-rank" target="_blank" op50>All projects sort by Stars</a>
-      </div>
     </div>
   </div>
   <div>
