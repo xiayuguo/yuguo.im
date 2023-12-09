@@ -2,4 +2,28 @@
 /blog https://yuguo.im/posts 301
 
 /github https://github.com/xiayuguo 301
+<<<<<<< HEAD
 /gh https://github.com/xiayuguo 301
+=======
+/gh https://github.com/xiayuguo 301
+/twitter https://twitter.com/yuguo_im 301
+/sponsor https://github.com/sponsors/xiayuguo 301
+/support https://github.com/sponsors/xiayuguo 301
+/instagram https://instagram.com/yuguo_im 301
+/ig https://instagram.com/yuguo_im 301
+
+
+/aes	https://github.com/xiayuguo/aes	302
+/comment	https://github.com/xiayuguo/comment	302
+/CrawlJoke	https://github.com/xiayuguo/CrawlJoke	302
+/design-patterns	https://github.com/xiayuguo/design-patterns	302
+/feed-app-vant-example	https://github.com/xiayuguo/feed-app-vant-example	302
+/garbage-classify	https://github.com/xiayuguo/garbage-classify	302
+/Google	https://github.com/xiayuguo/Google	302
+/har2swagger	https://github.com/xiayuguo/har2swagger	302
+/import_wiki_to_tapd	https://github.com/xiayuguo/import_wiki_to_tapd	302
+/jupyter-notebook	https://github.com/xiayuguo/jupyter-notebook	302
+/migrate	https://github.com/xiayuguo/migrate	302
+/Point	https://github.com/xiayuguo/Point	302
+/python-in-action	https://github.com/xiayuguo/python-in-action	302
+>>>>>>> 7d15fcc (add redirects)
