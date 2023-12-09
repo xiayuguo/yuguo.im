@@ -1,10 +1,6 @@
 /rss https://yuguo.im/feed.xml 301
 /blog https://yuguo.im/posts 301
-
 /github https://github.com/xiayuguo 301
-<<<<<<< HEAD
-/gh https://github.com/xiayuguo 301
-=======
 /gh https://github.com/xiayuguo 301
 /twitter https://twitter.com/yuguo_im 301
 /sponsor https://github.com/sponsors/xiayuguo 301
@@ -26,4 +22,3 @@
 /migrate	https://github.com/xiayuguo/migrate	302
 /Point	https://github.com/xiayuguo/Point	302
 /python-in-action	https://github.com/xiayuguo/python-in-action	302
->>>>>>> 7d15fcc (add redirects)
