@@ -12,9 +12,9 @@ const router = useRouter()
 const route = useRoute()
 const content = ref<HTMLDivElement>()
 
-const base = 'https://antfu.me'
-const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @antfu7\'s ${base}${route.path}\n\nI think...`)}`)
-const elkUrl = computed(() => `https://elk.zone/intent/post?text=${encodeURIComponent(`Reading @antfu@m.webtoo.ls\'s ${base}${route.path}\n\nI think...`)}`)
+const base = 'https://yuguo.im'
+const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @yuguo_im\'s ${base}${route.path}\n\nI think...`)}`)
+// const elkUrl = computed(() => `https://elk.zone/intent/post?text=${encodeURIComponent(`Reading @yuguo@m.webtoo.ls\'s ${base}${route.path}\n\nI think...`)}`)
 
 onMounted(() => {
   const navigate = () => {
@@ -113,15 +113,14 @@ onMounted(() => {
     <template v-if="frontmatter.duration">
       <span font-mono op50>> </span>
       <span op50>comment on </span>
-      <a :href="elkUrl" target="_blank" op50>mastodon</a>
-      <span op25> / </span>
+      <!-- <a :href="elkUrl" target="_blank" op50>mastodon</a> -->
+      <!-- <span op25> / </span> -->
       <a :href="tweetUrl" target="_blank" op50>twitter</a>
     </template>
     <br>
     <span font-mono op50>> </span>
     <RouterLink
-      :to="route.path.split('/').slice(0, -1).join('/') || '/'"
-      class="font-mono op50 hover:op75"
+      :to="route.path.split('/').slice(0, -1).join('/') || '/'" class="font-mono op50 hover:op75"
       v-text="'cd ..'"
     />
   </div>
