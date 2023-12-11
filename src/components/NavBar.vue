@@ -39,7 +39,7 @@ const { y: scroll } = useWindowScroll()
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
         <a href="https://twitter.com/yuguo_im" target="_blank" title="Twitter" class="lt-md:hidden">
-          <FeatherTwitter />
+          <div i-ri-twitter-x-fill />
         </a>
         <a href="https://github.com/xiayuguo" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
