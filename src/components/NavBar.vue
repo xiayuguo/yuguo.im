@@ -38,12 +38,15 @@ const { y: scroll } = useWindowScroll()
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </RouterLink>
-        <a href="https://twitter.com/yuguo_im" target="_blank" title="Twitter" class="lt-md:hidden">
-          <div i-ri-twitter-x-fill />
+        <a href="https://bsky.app/profile/yuguo.im" target="_blank" title="Bluesky" class="lt-md:hidden">
+          <div i-ri-bluesky-line />
         </a>
         <a href="https://github.com/xiayuguo" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
         </a>
+        <!-- <a href="https://twitter.com/yuguo_im" target="_blank" title="Twitter" class="lt-md:hidden">
+          <div i-ri-twitter-x-fill />
+        </a> -->
         <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>

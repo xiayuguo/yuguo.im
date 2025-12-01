@@ -34,6 +34,9 @@ devDependencies:
   '@antfu/eslint-config':
     specifier: ^1.0.0-beta.28
     version: 1.0.0-beta.28(eslint@8.52.0)(typescript@5.2.2)(vitest@1.0.2)
+  '@iconify-json/ri':
+    specifier: ^1.2.6
+    version: 1.2.6
   '@iconify/json':
     specifier: ^2.2.132
     version: 2.2.133
@@ -141,7 +144,7 @@ devDependencies:
     version: 5.2.2
   unocss:
     specifier: ^0.57.1
-    version: 0.57.1(postcss@8.4.31)(vite@4.5.0)
+    version: 0.57.1(postcss@8.4.32)(vite@4.5.0)
   unplugin-auto-import:
     specifier: ^0.16.6
     version: 0.16.6(@vueuse/core@10.5.0)
@@ -757,6 +760,12 @@ packages:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
     dev: true
 
+  /@iconify-json/ri@1.2.6:
+    resolution: {integrity: sha512-tGXRmXtb8oFu8DNg9MsS1pywKFgs9QZ4U6LBzUamBHaw3ePSiPd7ouE64gzHzfEcR16hgVaXoUa+XxD3BB0XOg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/json@2.2.133:
     resolution: {integrity: sha512-vpNtfbYbx018ReirMyJuZVbAZds1uPNys2RrGjhHVpSLr1gFrJqcUCiojG4AYo4iuMfZwT8VIm6PePi4OGUwfg==}
     dependencies:
@@ -1056,7 +1065,6 @@ packages:
     resolution: {integrity: sha512-RAdr3OJnUum6Vs83cQmKjxdTg31zJnLLTkjhcFt0auxM6jw00GD6IPFF42uasYPr/wGC6TRm7FsQiJyk0qIEfg==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -1065,7 +1073,6 @@ packages:
     resolution: {integrity: sha512-nhWwYsiJwZGq7SyR3afS3EekEOsEAlrNMpPC4ZDKn5ooYSEjDLe9W/xGvoIV8/F/+HNIY6jY8lIdXjjxfxopXw==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -1074,7 +1081,6 @@ packages:
     resolution: {integrity: sha512-rlfy5RnQG1aop1BL/gjdH42M2geMUyVQqd52GJVirqYc787A/XVvl3kQ5NG/43KXgOgE9HXgCaEH05kzQ+hLoA==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -1083,7 +1089,6 @@ packages:
     resolution: {integrity: sha512-cCkoGlGWfBobdDtiiypxf79q6k3/iRVGu1HVLbD92gWV5WZbmuWJCgRM4x2N6i7ljGn1cGytPn9ZAfS8UwF6vg==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -1092,7 +1097,6 @@ packages:
     resolution: {integrity: sha512-R2oBf2p/Arc1m+tWmiWbpHBjEcJnHVnv6bsypu4tcKdrYTpDfl1UT9qTyfkIL1iiii5D4WHxUHCg5X0pzqmxFg==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -1544,7 +1548,7 @@ packages:
       sirv: 2.0.3
     dev: true
 
-  /@unocss/postcss@0.57.1(postcss@8.4.31):
+  /@unocss/postcss@0.57.1(postcss@8.4.32):
     resolution: {integrity: sha512-DexrV+v/qkVh6t660rXigNr2Y6lON8jxD1z2KVk2bjHKhFflF6q6seps6d/MquyLJI1mXF2uANTeFAeL2q6evw==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -1556,7 +1560,7 @@ packages:
       css-tree: 2.3.1
       fast-glob: 3.3.1
       magic-string: 0.30.5
-      postcss: 8.4.31
+      postcss: 8.4.32
     dev: true
 
   /@unocss/preset-attributify@0.57.1:
@@ -5973,7 +5977,7 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
-  /unocss@0.57.1(postcss@8.4.31)(vite@4.5.0):
+  /unocss@0.57.1(postcss@8.4.32)(vite@4.5.0):
     resolution: {integrity: sha512-xLsyJ8+T1/Ux93yrqOvuQy268wF5rSzydlsbqZ5EVfi01PxYyydez3nycPqbyPZientkJ0Yohzd5aBqmZgku3A==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -5989,7 +5993,7 @@ packages:
       '@unocss/cli': 0.57.1
       '@unocss/core': 0.57.1
       '@unocss/extractor-arbitrary-variants': 0.57.1
-      '@unocss/postcss': 0.57.1(postcss@8.4.31)
+      '@unocss/postcss': 0.57.1(postcss@8.4.32)
       '@unocss/preset-attributify': 0.57.1
       '@unocss/preset-icons': 0.57.1
       '@unocss/preset-mini': 0.57.1
