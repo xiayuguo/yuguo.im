@@ -18,7 +18,7 @@ tags:
 - 每当源代码中出现 `const` 关键字时，它将重置为 0，
 - 并在每个 `const` 后按规范递增。
 
-```golang
+```go
 const (
     C0 = iota
     C1 = iota
@@ -29,7 +29,7 @@ fmt.Println(C0, C1, C2) // "0 1 2"
 
 这可以简写为
 
-```golang
+```go
 const (
 	C0 = iota
 	C1
@@ -42,7 +42,7 @@ const (
 ### 从 1 开始
 要以 1 而不是 0 开头的常量列表，可以在算术表达式中使用 `iota`。
 
-```golang
+```go
 const (
     C1 = iota + 1
     C2
@@ -54,7 +54,7 @@ fmt.Println(C1, C2, C3) // "1 2 3"
 ### 跳过某个值
 您可以使用标识符 `_` 跳过常量列表中的值。
 
-```golang
+```go
 const (
     C1 = iota + 1
     _
@@ -70,7 +70,7 @@ fmt.Println(C1, C3, C4) // "1 3 4"
 - 使用 `iota` 列出其值， 
 - 给类型一个 `String` 函数。
 
-```golang
+```go
 type Direction int
 
 const (
@@ -87,7 +87,7 @@ func (d Direction) String() string {
 
 使用：
 
-```golang
+```go
 var d Direction = North
 fmt.Print(d)
 switch d {
@@ -108,7 +108,7 @@ default:
 ### `iota` 与 `<<`
 `iota` 的另一个常见应用如下
 
-```golang
+```go
 const (
 	B = 1 << (10 * iota) // 1                    (1 << 10 * 0)
 	KB                   // 1024                 (1 << 10 * 1)

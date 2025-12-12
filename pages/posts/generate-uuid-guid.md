@@ -24,7 +24,7 @@ UUID 的字符串表示形式由 32 个十六进制数字组成，以 5 个组�
 
 ## UUID 生成器示例
 您可以使用来自 [crypto/rand](https://golang.org/pkg/crypto/rand/ "crypto/rand") 包的 [rand.Read](https://golang.org/pkg/crypto/rand/#Read "rand.Read") 函数来生成基本的 UUID。
-```golang
+```go
 b := make([]byte, 16)
 _, err := rand.Read(b)
 if err != nil {
@@ -35,7 +35,7 @@ uuid := fmt.Sprintf("%x-%x-%x-%x-%x",
 fmt.Println(uuid)
 ```
 输出：
-```golang
+```go
 9438167c-9493-4993-fd48-950b27aad7c9
 ```
 

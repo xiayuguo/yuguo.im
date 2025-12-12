@@ -15,7 +15,7 @@ tags:
 
 ## 随机字符串
 该代码从瑞典语字母（包括非 ASCII 字符 å， ä 和 ö ）中生成一个随机的数字和字符字符串。
-```golang
+```go
 rand.Seed(time.Now().UnixNano())
 chars := []rune("ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ" +
     "abcdefghijklmnopqrstuvwxyzåäö" +
@@ -31,7 +31,7 @@ str := b.String() // E.g. "ExcbsVQs"
 
 ## 有限制的随机字符串
 此代码生成一个随机的 ASCII 字符串，该字符串至少包含一个数字和一个特殊字符。
-```golang
+```go
 rand.Seed(time.Now().UnixNano())
 digits := "0123456789"
 specials := "~=+%^*/()[]{}/!@#$?|"
@@ -52,7 +52,7 @@ str := string(buf) // E.g. "3i[g0|)z"
 ```
 #### Go 1.10 之前
 在 Go 1.10 之前的代码中，用以下代码替换对rand.Shuffle的调用：
-```golang
+```go
 for i := len(buf) - 1; i > 0; i-- { // Fisher–Yates shuffle
     j := rand.Intn(i + 1)
     buf[i], buf[j] = buf[j], buf[i]

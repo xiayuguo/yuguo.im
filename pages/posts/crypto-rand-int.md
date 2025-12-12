@@ -20,7 +20,7 @@ Go 有两个用于随机数的包：
 
 这两个包可以通过调用包 `math/rand` 中的 [rand.New](https://golang.org/pkg/math/rand/#New "rand.New") 与一个从 `crypto/rand` 获取数据的源来合并。
 
-```golang
+```go
 import (
     crand "crypto/rand"
     rand "math/rand"
