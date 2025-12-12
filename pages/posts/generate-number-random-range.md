@@ -15,13 +15,13 @@ tags:
 
 ## Go 伪随机数基础知识
 使用包 [math/rand](https://golang.org/pkg/math/rand/ "math/rand") 中的 [rand.Seed](https://golang.org/pkg/math/rand/#Seed "rand.Seed") 和 [rand.Int63](https://golang.org/pkg/math/rand/#Int63 "rand.Int63") 函数生成 int64 类型的非负伪随机数：
-```golang
+```go
 rand.Seed(time.Now().UnixNano())
 n := rand.Int63() // for example 4601851300195147788
 ```
 
 同样，[rand.Float64](https://golang.org/pkg/math/rand/#Float64 "rand.Float64") 生成伪随机浮点数 x，其中 0 ≤ x < 1：
-```golang
+```go
 x := rand.Float64() // for example 0.49893371771268225
 ```
 
@@ -33,7 +33,7 @@ x := rand.Float64() // for example 0.49893371771268225
 `math/rand` 包中的函数全部使用单个随机源。
 
 如果需要，您可以使用自己的源创建一个新的 `Rand` 类型的随机生成器，然后使用其方法生成随机数：
-```golang
+```go
 generator := rand.New(rand.NewSource(time.Now().UnixNano()))
 n := generator.Int63()
 x := generator.Float64()
@@ -43,18 +43,18 @@ x := generator.Float64()
 
 ### a 和 b 之间的数字
 使用 [rand.Intn(m)](https://golang.org/pkg/math/rand/#Intn "rand.Intn")，它返回一个伪随机数 n，其中 0 ≤ n < m。
-```golang
+```go
 n := a + rand.Intn(b-a+1) // a ≤ n ≤ b
 ```
 
 ### 'a' 和 'z' 之间的字符
-```golang
+```go
 c := 'a' + rune(rand.Intn('z'-'a'+1)) // 'a' ≤ c ≤ 'z'
 ```
 
 ## 切片中的随机元素
 要从任意集合生成字符，请从字符切片中选择一个随机索引：
-```golang
+```go
 chars := []rune("AB⌘")
 c := chars[rand.Intn(len(chars))] // for example '⌘'
 ```
