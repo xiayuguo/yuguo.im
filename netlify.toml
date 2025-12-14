@@ -4,6 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  LANG = "en_US.UTF-8"
+  LC_ALL = "en_US.UTF-8"
 
 [[headers]]
 for = "/assets/*"
