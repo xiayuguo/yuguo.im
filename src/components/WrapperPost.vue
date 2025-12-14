@@ -15,6 +15,7 @@ const content = ref<HTMLDivElement>()
 const base = 'https://yuguo.im'
 const tweetUrl = computed(() => `https://twitter.com/intent/tweet?text=${encodeURIComponent(`Reading @yuguo_im\'s ${base}${route.path}\n\nI think...`)}`)
 // const elkUrl = computed(() => `https://elk.zone/intent/post?text=${encodeURIComponent(`Reading @yuguo@m.webtoo.ls\'s ${base}${route.path}\n\nI think...`)}`)
+const blueskyUrl = computed(() => `https://bsky.app/intent/compose?text=${encodeURIComponent(`Reading @yuguo.im ${base}${route.path}\n\nI think...`)}`)
 
 onMounted(() => {
   const navigate = () => {
@@ -115,6 +116,8 @@ onMounted(() => {
       <span op50>comment on </span>
       <!-- <a :href="elkUrl" target="_blank" op50>mastodon</a> -->
       <!-- <span op25> / </span> -->
+      <a :href="blueskyUrl" target="_blank" op50>bluesky</a>
+      <span op25> / </span>
       <a :href="tweetUrl" target="_blank" op50>twitter</a>
     </template>
     <br>
