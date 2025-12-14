@@ -3,6 +3,7 @@ title: Golang 中关于 iota 的 4 个例子
 date: 2020-04-16T07:15:40+08:00
 draft: false
 comments: true
+duration: 5min
 tags: 
 - Golang
 ---
