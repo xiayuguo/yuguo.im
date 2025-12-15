@@ -1,0 +1,36 @@
+name: Generate OG Images
+
+on:
+  push:
+    paths:
+      - 'pages/**/*.md'
+      - scripts/og-template.svg
+      - scripts/generate-og.ts
+
+jobs:
+  og:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - run: pnpm install
+
+      - run: pnpm tsx scripts/generate-og.ts
+
+      - name: Commit generated images
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add public/og
+          git commit -m "chore: generate og images" || echo "No changes"
+          git push
