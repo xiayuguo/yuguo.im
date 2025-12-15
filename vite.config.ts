@@ -1,5 +1,8 @@
 import { Buffer } from 'node:buffer'
 import { basename, dirname, resolve } from 'node:path'
+import MarkdownItShiki from '@shikijs/markdown-it'
+import { transformerNotationDiff, transformerNotationHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
+import { rendererRich, transformerTwoslash } from '@shikijs/twoslash'
 import Vue from '@vitejs/plugin-vue'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
@@ -8,17 +11,17 @@ import LinkAttributes from 'markdown-it-link-attributes'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
 import sharp from 'sharp'
-import { bundledLanguages, getHighlighter } from 'shikiji'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
+import { VueRouterAutoImports } from 'unplugin-vue-router'
+import VueRouter from 'unplugin-vue-router/vite'
+
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-
-import Pages from 'vite-plugin-pages'
 import SVG from 'vite-svg-loader'
 import { slugify } from './scripts/slugify'
 
@@ -50,19 +53,21 @@ export default defineConfig({
       },
     }),
 
-    Pages({
-      extensions: ['vue', 'md'],
-      dirs: 'pages',
+    VueRouter({
+      extensions: ['.vue', '.md'],
+      routesFolder: 'pages',
+      // logs: true,
       extendRoute(route) {
-        const path = resolve(__dirname, route.component.slice(1))
+        const path = route.components.get('default')
+        if (!path)
+          return
 
         if (!path.includes('projects.md') && path.endsWith('.md')) {
-          const md = fs.readFileSync(path, 'utf-8')
-          const { data } = matter(md)
-          route.meta = Object.assign(route.meta || {}, { frontmatter: data })
+          const { data } = matter(fs.readFileSync(path, 'utf-8'))
+          route.addToMeta({
+            frontmatter: data,
+          })
         }
-
-        return route
       },
     }),
 
@@ -81,23 +86,23 @@ export default defineConfig({
         quotes: '""\'\'',
       },
       async markdownItSetup(md) {
-        const shiki = await getHighlighter({
-          themes: ['vitesse-dark', 'vitesse-light'],
-          langs: Object.keys(bundledLanguages) as any,
-        })
-
-        md.use((markdown) => {
-          markdown.options.highlight = (code, lang) => {
-            return shiki.codeToHtml(code, {
-              lang,
-              themes: {
-                light: 'vitesse-light',
-                dark: 'vitesse-dark',
-              },
-              cssVariablePrefix: '--s-',
-            })
-          }
-        })
+        md.use(await MarkdownItShiki({
+          themes: {
+            dark: 'vitesse-dark',
+            light: 'vitesse-light',
+          },
+          defaultColor: false,
+          cssVariablePrefix: '--s-',
+          transformers: [
+            transformerTwoslash({
+              explicitTrigger: true,
+              renderer: rendererRich(),
+            }),
+            transformerNotationDiff(),
+            transformerNotationHighlight(),
+            transformerNotationWordHighlight(),
+          ],
+        }))
 
         md.use(anchor, {
           slugify,
@@ -144,9 +149,8 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        'vue-router',
+        VueRouterAutoImports,
         '@vueuse/core',
-        '@vueuse/head',
       ],
     }),
 
@@ -192,7 +196,6 @@ export default defineConfig({
 
   ssgOptions: {
     formatting: 'minify',
-    format: 'cjs',
   },
 })
 
