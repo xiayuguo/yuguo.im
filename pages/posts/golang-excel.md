@@ -3,6 +3,7 @@ title: How to use Excel with Go
 date: 2020-04-15T18:52:12+08:00
 draft: false
 comments: true
+duration: 5min
 tags: 
 - Golang
 ---
