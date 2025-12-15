@@ -3,12 +3,13 @@ title: Runes 和字符编码（译文）
 date: 2020-03-10T19:00:17+08:00
 draft: false
 comments: true
-tags: 
+duration: 5min
+tags:
 - Golang
 ---
 
 > 作者：Stefan Nilsson
-> 
+>
 > 原文网址：https://yourbasic.org/golang/rune
 
 ![Runic letters encoded in stone, Ballstorp 1900](http://oss.yuguo.im/blog/202003/rune-stone-ballstorp-1900.jpg)
@@ -32,7 +33,3 @@ tags:
 fmt.Println([]byte("café")) // [99 97 102 195 169]
 fmt.Println([]rune("café")) // [99 97 102 233]
 ```
-
-
-
-
