@@ -10,7 +10,6 @@ import anchor from 'markdown-it-anchor'
 import LinkAttributes from 'markdown-it-link-attributes'
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
-import sharp from 'sharp'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
@@ -205,6 +204,7 @@ async function generateOg(title: string, output: string) {
   if (fs.existsSync(output))
     return
 
+  const { default: sharp } = await import('sharp')
   await fs.mkdir(dirname(output), { recursive: true })
   // breakline every 30 chars
   const lines = title.trim().split(/(.{0,30})(?:\s|$)/g).filter(Boolean)
