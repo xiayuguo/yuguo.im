@@ -214,6 +214,7 @@ async function generateOg(title: string, output: string) {
     line2: lines[1],
     line3: lines[2],
   }
+  console.warn('Generating og image data:', data)
   const svg = ogSVg.replace(/\{\{([^}]+)}}/g, (_, name) => data[name] || '')
 
   // eslint-disable-next-line no-console
