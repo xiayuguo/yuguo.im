@@ -198,6 +198,9 @@ export default defineConfig({
 
 const ogSVg = fs.readFileSync('./scripts/og-template.svg', 'utf-8')
 
+const lang = process.env.LANG || process.env.LANGUAGE || process.env.LC_ALL || process.env.LC_MESSAGES || process.env.LC_CTYPE
+console.warn('Language environment:', lang)
+
 async function generateOg(title: string, output: string) {
   if (fs.existsSync(output))
     return
