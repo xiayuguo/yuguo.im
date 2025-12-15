@@ -3,6 +3,7 @@ title: Golang 中 3 种简单的方法来创建错误（译文）
 date: 2020-03-19T08:28:05+08:00
 draft: false
 comments: true
+duration: 5min
 tags: 
 - Golang
 ---
