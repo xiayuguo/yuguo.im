@@ -1,16 +1,20 @@
 import path from 'node:path'
+import fg from 'fast-glob'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import sharp from 'sharp'
 
 const ogTemplate = fs.readFileSync('scripts/og-template.svg', 'utf8')
-const pagesDir = 'pages'
+const pagesDir = path.resolve('pages')
 const outDir = 'public/og'
 
 async function generate() {
   await fs.ensureDir(outDir)
 
-  const files = await fs.glob(`${pagesDir}/**/*.md`)
+  const files = await fg('**/*.md', {
+    cwd: pagesDir,
+    absolute: true,
+  })
 
   for (const file of files) {
     const slug = path.basename(file, '.md')
