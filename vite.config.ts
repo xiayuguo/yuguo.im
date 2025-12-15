@@ -1,25 +1,25 @@
-import { basename, dirname, resolve } from 'node:path'
 import { Buffer } from 'node:buffer'
-import { defineConfig } from 'vite'
-import fs from 'fs-extra'
-import Pages from 'vite-plugin-pages'
-import Inspect from 'vite-plugin-inspect'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import Components from 'unplugin-vue-components/vite'
-import Markdown from 'unplugin-vue-markdown/vite'
+import { basename, dirname, resolve } from 'node:path'
 import Vue from '@vitejs/plugin-vue'
+import fs from 'fs-extra'
 import matter from 'gray-matter'
-import AutoImport from 'unplugin-auto-import/vite'
 import anchor from 'markdown-it-anchor'
 import LinkAttributes from 'markdown-it-link-attributes'
-import UnoCSS from 'unocss/vite'
-import SVG from 'vite-svg-loader'
-import { bundledLanguages, getHighlighter } from 'shikiji'
-
 // @ts-expect-error missing types
 import TOC from 'markdown-it-table-of-contents'
 import sharp from 'sharp'
+import { bundledLanguages, getHighlighter } from 'shikiji'
+import UnoCSS from 'unocss/vite'
+import AutoImport from 'unplugin-auto-import/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
+import Components from 'unplugin-vue-components/vite'
+import Markdown from 'unplugin-vue-markdown/vite'
+import { defineConfig } from 'vite'
+import Inspect from 'vite-plugin-inspect'
+
+import Pages from 'vite-plugin-pages'
+import SVG from 'vite-svg-loader'
 import { slugify } from './scripts/slugify'
 
 const promises: Promise<any>[] = []
@@ -198,9 +198,6 @@ export default defineConfig({
 
 const ogSVg = fs.readFileSync('./scripts/og-template.svg', 'utf-8')
 
-const lang = process.env.LANG || process.env.LANGUAGE || process.env.LC_ALL || process.env.LC_MESSAGES || process.env.LC_CTYPE
-console.warn('Language environment:', lang)
-
 async function generateOg(title: string, output: string) {
   if (fs.existsSync(output))
     return
@@ -215,9 +212,8 @@ async function generateOg(title: string, output: string) {
     line3: lines[2],
   }
   console.warn('Generating og image data:', data)
-  const svg = ogSVg.replace(/\{\{([^}]+)}}/g, (_, name) => data[name] || '')
+  const svg = ogSVg.replace(/\{\{([^}]+)\}\}/g, (_, name) => data[name] || '')
 
-  // eslint-disable-next-line no-console
   console.log(`Generating ${output}`)
   try {
     await sharp(Buffer.from(svg))
