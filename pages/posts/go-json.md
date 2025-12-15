@@ -3,14 +3,15 @@ title: "如何在 Go 中使用 JSON【最佳实践】（译文）"
 date: 2020-03-03T10:42:18+08:00
 draft: false
 comments: true
-tags: 
+duration: 10min
+tags:
 - Golang
 ---
 
 JSON 数据交换格式对人类来说很容易读写，对机器进行解析和生成也非常有效。
 
 > 作者：Stefan Nilsson
-> 
+>
 > 原文网址：https://yourbasic.org/golang/json-example/
 
 ![bits-man](http://q6gt3ane0.bkt.clouddn.com/bits-man.jpg)
@@ -30,9 +31,9 @@ JSON 数据交换格式对人类来说很容易读写，对机器进行解析和
 请注意，JSON不支持基本整数类型。它们通常可以用浮点数来近似。
 
 > 由于实现 IEEE 754-2008 binary64（双精度）数字的软件普遍可用并得到广泛使用，因此，期望其精度或范围不超过其提供的精度的实现可以实现良好的互操作性。
-> 
+>
 > 请注意，使用此类软件时，在实现将完全一致于其数值的意义上，整数（整数）且在 $\ce{[-2^53 + 1, 2^53 - 1]}$ 范围内是可以互操作的。
-> 
+>
 > [RFC 7159: JSON数据交换格式](https://tools.ietf.org/html/rfc7159#section-6 "JSON数据交换格式")
 
 ## 编码(marshal) struct 转 JSON
@@ -132,7 +133,6 @@ Standard [Apple Banana Orange] 999
 ```
 请注意，Unmarshal自行分配了一个新的切片。这就是切片, Map 和指针的解码工作的方式。
 
-
 对于给定的 JSON 键名 Foo，Unmarshal将尝试按以下顺序匹配结构体中的字段：
 1. 结构体中具有标签`json："Foo"`的可导出（公有）字段
 2. 结构体中命名为 Foo 的字段
@@ -208,7 +208,7 @@ Parents (array):
 
 代码演示如下功能：
 
-- 从 Reader（[strings.Reader](https://golang.org/pkg/strings/#Reader "strings.Reader")）读取 JSON 对象流 
+- 从 Reader（[strings.Reader](https://golang.org/pkg/strings/#Reader "strings.Reader")）读取 JSON 对象流
 - 从每个对象中移除字段 Age
 - 然后将对象写入 Writer（[os.Stdout](https://golang.org/pkg/os/#pkg-variables "os.Stdout")）
 
@@ -250,5 +250,3 @@ for {
 {"Name":"Alice"}
 {"Name":"Bob"}
 ```
-
-
