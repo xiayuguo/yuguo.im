@@ -1,15 +1,15 @@
 {
   "type": "module",
   "private": true,
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production vite-ssg build && tsx ./scripts/copy-fonts.ts && tsx ./scripts/rss.ts && cp _dist_redirects dist/_redirects",
     "dev": "vite --port 3333 --open",
     "preview": "vite preview",
-    "static": "",
-    "redirects": "esno scripts/redirects.ts",
+    "redirects": "tsx scripts/redirects.ts",
     "lint": "eslint .",
-    "compress": "esno scripts/img-compress-staged.ts"
+    "compress": "tsx scripts/img-compress-staged.ts",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "@unhead/vue": "catalog:frontend",
@@ -86,7 +86,6 @@
     "unplugin-icons": "catalog:build",
     "unplugin-vue-components": "catalog:build",
     "unplugin-vue-markdown": "catalog:build",
-    "unplugin-vue-router": "catalog:build",
     "vite": "catalog:build",
     "vite-plugin-inspect": "catalog:build",
     "vite-plugin-optimize-exclude": "catalog:build",

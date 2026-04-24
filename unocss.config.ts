@@ -1,7 +1,14 @@
 import {
   createLocalFontProcessor,
 } from '@unocss/preset-web-fonts/local'
-import { defineConfig, presetAttributify, presetIcons, presetWebFonts, presetWind3, transformerDirectives } from 'unocss'
+import {
+  defineConfig,
+  presetAttributify,
+  presetIcons,
+  presetWebFonts,
+  presetWind3,
+  transformerDirectives,
+} from 'unocss'
 
 export default defineConfig({
   shortcuts: [
@@ -43,6 +50,5 @@ export default defineConfig({
   ],
   safelist: [
     'i-ri-menu-2-fill',
-    'i-ri-bluesky-line',
   ],
 })
