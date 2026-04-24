@@ -65,6 +65,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/posts/claude-code-cheatsheet': RouteRecordInfo<
+      '/posts/claude-code-cheatsheet',
+      '/posts/claude-code-cheatsheet',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/posts/convert-int-to-string': RouteRecordInfo<
       '/posts/convert-int-to-string',
       '/posts/convert-int-to-string',
@@ -370,6 +377,12 @@ declare module 'vue-router/auto-routes' {
     'pages/posts/change-redis-password.md': {
       routes:
         | '/posts/change-redis-password'
+      views:
+        | never
+    }
+    'pages/posts/claude-code-cheatsheet.md': {
+      routes:
+        | '/posts/claude-code-cheatsheet'
       views:
         | never
     }
