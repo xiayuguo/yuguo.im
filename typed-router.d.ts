@@ -261,6 +261,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/posts/memory-metrics': RouteRecordInfo<
+      '/posts/memory-metrics',
+      '/posts/memory-metrics',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/posts/multi-platform-compilation-of-golang': RouteRecordInfo<
       '/posts/multi-platform-compilation-of-golang',
       '/posts/multi-platform-compilation-of-golang',
@@ -546,6 +553,12 @@ declare module 'vue-router/auto-routes' {
     'pages/posts/linux-ps-command-examples.md': {
       routes:
         | '/posts/linux-ps-command-examples'
+      views:
+        | never
+    }
+    'pages/posts/memory-metrics.md': {
+      routes:
+        | '/posts/memory-metrics'
       views:
         | never
     }
