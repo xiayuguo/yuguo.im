@@ -177,6 +177,13 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/posts/git-merge-options': RouteRecordInfo<
+      '/posts/git-merge-options',
+      '/posts/git-merge-options',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
     '/posts/github-pages-https': RouteRecordInfo<
       '/posts/github-pages-https',
       '/posts/github-pages-https',
@@ -481,6 +488,12 @@ declare module 'vue-router/auto-routes' {
     'pages/posts/generate-uuid-guid.md': {
       routes:
         | '/posts/generate-uuid-guid'
+      views:
+        | never
+    }
+    'pages/posts/git-merge-options.md': {
+      routes:
+        | '/posts/git-merge-options'
       views:
         | never
     }
